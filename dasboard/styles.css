@@ -1,0 +1,734 @@
+
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
+:root {
+    --fondo: #0b1020;
+    --panel: #141c30;
+    --panel-secundario: #1b2740;
+    --borde: rgba(255,255,255,0.08);
+
+    --texto: #f1f5f9;
+    --secundario: #94a3b8;
+
+    --azul: #60a5fa;
+    --verde: #34d399;
+    --violeta: #a78bfa;
+
+    --radio: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 10% 0%, rgba(59,130,246,0.12), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(139,92,246,0.09), transparent 30%),
+        var(--fondo);
+
+    color: var(--texto);
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+.encabezado {
+    max-width: 1250px;
+    margin: auto;
+    padding: 45px 30px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 27px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 25px rgba(59,130,246,0.25);
+}
+
+.etiqueta {
+    display: block;
+    color: var(--azul);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    margin-bottom: 9px;
+}
+
+.encabezado h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(25px, 4vw, 36px);
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.encabezado p {
+    color: var(--secundario);
+    font-size: 13px;
+}
+
+.estado {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 15px;
+    border: 1px solid var(--borde);
+    background: rgba(255,255,255,0.04);
+    border-radius: 30px;
+
+    color: var(--secundario);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.punto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f59e0b;
+}
+
+
+/* =====================================
+   CONTENEDOR
+===================================== */
+
+.contenedor {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 30px 45px;
+}
+
+
+/* =====================================
+   NAVEGACIÓN
+===================================== */
+
+.navegacion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    padding: 10px;
+    margin-bottom: 35px;
+
+    background: rgba(20,28,48,0.9);
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 13px 17px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    background: transparent;
+    color: var(--secundario);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.06);
+    color: white;
+}
+
+.nav-btn.activo {
+    background: #263b60;
+    border-color: rgba(96,165,250,0.3);
+    color: #bfdbfe;
+}
+
+.nav-btn span {
+    font-size: 16px;
+}
+
+
+/* =====================================
+   PANTALLAS
+===================================== */
+
+.vista {
+    display: none;
+}
+
+.vista.activa {
+    display: block;
+    animation: aparecer 0.35s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================
+   TÍTULOS DE SECCIÓN
+===================================== */
+
+.bienvenida {
+    margin-bottom: 25px;
+}
+
+.bienvenida h2,
+.encabezado-vista h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 27px;
+    margin-bottom: 7px;
+}
+
+.bienvenida p,
+.encabezado-vista p {
+    color: var(--secundario);
+    font-size: 13px;
+}
+
+.encabezado-vista {
+    margin-bottom: 27px;
+}
+
+
+/* =====================================
+   TARJETAS DE RESUMEN GENERAL
+===================================== */
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+    margin-bottom: 22px;
+}
+
+.tarjeta-resumen {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    padding: 23px;
+
+    background: linear-gradient(145deg, #192640, #141c30);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+
+    transition: 0.25s;
+}
+
+.tarjeta-resumen:hover {
+    transform: translateY(-4px);
+    border-color: rgba(96,165,250,0.3);
+}
+
+.icono-resumen {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.tarjeta-resumen span {
+    color: var(--secundario);
+    font-size: 13px;
+}
+
+.tarjeta-resumen strong {
+    font-family: 'Outfit', sans-serif;
+    font-size: 39px;
+    letter-spacing: -1px;
+}
+
+.tarjeta-resumen small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.tarjeta-resumen.principal strong {
+    color: var(--azul);
+}
+
+
+/* =====================================
+   PANEL GENERAL
+===================================== */
+
+.panel-general {
+    padding: 27px;
+
+    background: linear-gradient(135deg, #1c2c49, #141c30);
+    border: 1px solid rgba(96,165,250,0.17);
+    border-radius: var(--radio);
+
+    margin-bottom: 42px;
+}
+
+.titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 23px;
+}
+
+.titulo-seccion h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px;
+}
+
+.titulo-seccion > span {
+    color: var(--azul);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.barra-fondo {
+    width: 100%;
+    height: 13px;
+
+    background: rgba(255,255,255,0.09);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.barra {
+    height: 100%;
+    width: 0%;
+    border-radius: 30px;
+
+    transition: width 1s ease;
+}
+
+.barra-general {
+    background: linear-gradient(90deg, #3b82f6, #a78bfa);
+    box-shadow: 0 0 15px rgba(96,165,250,0.3);
+}
+
+.panel-general p {
+    margin-top: 14px;
+    color: var(--secundario);
+    font-size: 12px;
+}
+
+
+/* =====================================
+   RESUMEN POR CARRERA
+===================================== */
+
+.seccion-resumen {
+    margin-bottom: 30px;
+}
+
+.resumen-carreras {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.mini-carrera {
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.mini-carrera:hover {
+    transform: translateY(-3px);
+    background: var(--panel-secundario);
+}
+
+.mini-carrera h3 {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.mini-carrera strong {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.mini-carrera p {
+    color: var(--secundario);
+    font-size: 11px;
+}
+
+.mini-carrera .mini-barra {
+    height: 6px;
+    margin-top: 15px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.mini-carrera .mini-barra div {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 1s ease;
+}
+
+.mini-carrera.psico strong {
+    color: var(--azul);
+}
+
+.mini-carrera.psico .mini-barra div {
+    background: var(--azul);
+}
+
+.mini-carrera.terapia strong {
+    color: var(--verde);
+}
+
+.mini-carrera.terapia .mini-barra div {
+    background: var(--verde);
+}
+
+.mini-carrera.software strong {
+    color: var(--violeta);
+}
+
+.mini-carrera.software .mini-barra div {
+    background: var(--violeta);
+}
+
+
+/* =====================================
+   TARJETA DE CARRERA
+===================================== */
+
+.tarjeta-carrera {
+    max-width: 900px;
+    padding: 30px;
+
+    background: rgba(20,28,48,0.96);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+
+    margin-bottom: 25px;
+}
+
+.encabezado-carrera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.info-carrera h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px;
+    margin-bottom: 7px;
+}
+
+.info-carrera p {
+    color: var(--secundario);
+    font-size: 12px;
+}
+
+.icono-carrera {
+    width: 49px;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+
+/* Colores de las carreras */
+
+.psico .icono-carrera {
+    color: var(--azul);
+    background: rgba(96,165,250,0.13);
+}
+
+.terapia .icono-carrera {
+    color: var(--verde);
+    background: rgba(52,211,153,0.13);
+}
+
+.software .icono-carrera {
+    color: var(--violeta);
+    background: rgba(167,139,250,0.13);
+}
+
+
+/* =====================================
+   DATOS DE CADA CARRERA
+===================================== */
+
+.resumen-carrera {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    padding: 17px;
+    margin-bottom: 28px;
+
+    background: rgba(255,255,255,0.035);
+    border-radius: 13px;
+}
+
+.dato-carrera {
+    text-align: center;
+}
+
+.dato-carrera strong {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 27px;
+    margin-bottom: 4px;
+}
+
+.dato-carrera span {
+    color: var(--secundario);
+    font-size: 11px;
+}
+
+
+/* =====================================
+   BARRAS POR AÑO
+===================================== */
+
+.titulo-anios {
+    color: var(--secundario);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 23px;
+}
+
+.fila-anio {
+    margin-bottom: 26px;
+}
+
+.info-anio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.nombre-anio {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cantidad-anio {
+    color: var(--secundario);
+    font-size: 12px;
+}
+
+.cantidad-anio strong {
+    color: var(--texto);
+}
+
+.fondo-anio {
+    width: 100%;
+    height: 10px;
+
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra-anio {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    transition: width 1.2s ease;
+}
+
+.psico .barra-anio {
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+
+.terapia .barra-anio {
+    background: linear-gradient(90deg, #059669, #34d399);
+}
+
+.software .barra-anio {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+.porcentaje-anio {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 7px;
+
+    color: var(--secundario);
+    font-size: 11px;
+}
+
+
+/* =====================================
+   PIE DE PÁGINA
+===================================== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding-top: 22px;
+    margin-top: 40px;
+
+    border-top: 1px solid var(--borde);
+
+    color: #64748b;
+    font-size: 11px;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+    .resumen-carreras {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tarjeta-resumen:last-child {
+        grid-column: span 2;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .encabezado {
+        padding: 30px 18px 25px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .marca {
+        align-items: flex-start;
+    }
+
+    .contenedor {
+        padding: 0 18px 35px;
+    }
+
+    .navegacion {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        padding: 8px;
+    }
+
+    .nav-btn {
+        justify-content: flex-start;
+        padding: 12px 9px;
+        font-size: 10px;
+    }
+
+    .resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-resumen:last-child {
+        grid-column: auto;
+    }
+
+    .tarjeta-resumen {
+        padding: 19px;
+    }
+
+    .panel-general {
+        padding: 20px;
+    }
+
+    .tarjeta-carrera {
+        padding: 20px;
+    }
+
+    .resumen-carrera {
+        padding: 13px 8px;
+        gap: 5px;
+    }
+
+    .dato-carrera strong {
+        font-size: 23px;
+    }
+
+    .dato-carrera span {
+        font-size: 10px;
+    }
+
+    .info-carrera h3 {
+        font-size: 18px;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+}

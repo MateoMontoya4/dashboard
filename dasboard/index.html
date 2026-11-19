@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Encuestas IDRA</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <div class="marca">
+            <div class="logo">I</div>
+
+            <div>
+                <span class="etiqueta">IDRA · INVESTIGACIÓN ACADÉMICA</span>
+                <h1>Panel de estadísticas</h1>
+                <p>Seguimiento de participación en clases asincrónicas</p>
+            </div>
+        </div>
+
+        <div class="estado">
+            <span class="punto"></span>
+            <span id="estado-api">Conectando...</span>
+        </div>
+
+    </header>
+
+
+    <main class="contenedor">
+
+        <!-- NAVEGACIÓN -->
+
+        <nav class="navegacion">
+
+            <button class="nav-btn activo" data-vista="general">
+                <span>📊</span>
+                General
+            </button>
+
+            <button class="nav-btn" data-vista="psico">
+                <span>📚</span>
+                Psicopedagogía
+            </button>
+
+            <button class="nav-btn" data-vista="terapia">
+                <span>🤝</span>
+                Acompañamiento Terapéutico
+            </button>
+
+            <button class="nav-btn" data-vista="software">
+                <span>💻</span>
+                Desarrollo de Software
+            </button>
+
+        </nav>
+
+
+        <!-- PANTALLA GENERAL -->
+
+        <section id="vista-general" class="vista activa">
+
+            <div class="bienvenida">
+                <div>
+                    <span class="etiqueta">RESUMEN GENERAL</span>
+                    <h2>Participación de estudiantes</h2>
+                    <p>Resumen de todas las carreras encuestadas.</p>
+                </div>
+            </div>
+
+
+            <section class="resumen">
+
+                <article class="tarjeta-resumen principal">
+                    <div class="icono-resumen">📋</div>
+                    <span>Encuestas recibidas</span>
+                    <strong id="total-encuestas">0</strong>
+                    <small>Respuestas registradas</small>
+                </article>
+
+                <article class="tarjeta-resumen">
+                    <div class="icono-resumen">🎓</div>
+                    <span>Estudiantes previstos</span>
+                    <strong id="total-estudiantes">325</strong>
+                    <small>Según los datos por año</small>
+                </article>
+
+                <article class="tarjeta-resumen">
+                    <div class="icono-resumen">📈</div>
+                    <span>Participación general</span>
+                    <strong id="porcentaje-general">0%</strong>
+                    <small>Porcentaje de respuestas</small>
+                </article>
+
+            </section>
+
+
+            <!-- PROGRESO GENERAL -->
+
+            <section class="panel-general">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">PROGRESO</span>
+                        <h2>Participación total</h2>
+                    </div>
+
+                    <span id="contador-general">0 / 325</span>
+                </div>
+
+                <div class="barra-fondo">
+                    <div id="barra-general" class="barra barra-general"></div>
+                </div>
+
+                <p id="texto-general">
+                    Todavía no hay respuestas registradas.
+                </p>
+
+            </section>
+
+
+            <!-- RESUMEN POR CARRERA -->
+
+            <section class="seccion-resumen">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">CARRERAS</span>
+                        <h2>Resumen por carrera</h2>
+                    </div>
+                </div>
+
+                <div id="resumen-carreras" class="resumen-carreras">
+                    <!-- Se genera desde JavaScript -->
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- PANTALLA DE CARRERAS -->
+
+        <section id="vista-carreras" class="vista">
+
+            <div class="encabezado-vista">
+                <span class="etiqueta">ESTADÍSTICAS POR CARRERA</span>
+                <h2 id="titulo-carrera">Carrera</h2>
+                <p id="descripcion-carrera">
+                    Participación de estudiantes por año.
+                </p>
+            </div>
+
+            <div id="contenedor-carrera">
+                <!-- La tarjeta se genera desde JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- PIE -->
+
+        <footer>
+            <span>Dashboard de encuestas · IDRA</span>
+            <span id="ultima-actualizacion">Esperando datos...</span>
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
